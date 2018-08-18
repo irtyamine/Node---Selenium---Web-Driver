@@ -27,7 +27,7 @@ const databaseConfig = require('./config/mongo-db-context');
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // Set database connection
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-const env = process.env.NODE_EN || 'local';
+const env = process.env.NODE_EN || 'dev';
 console.log(`NODE_ENV: ${env}`);
 databaseConfig.pickEnv(env, app);
 		

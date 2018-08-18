@@ -49,5 +49,5 @@ module.exports.searchBrand = async (req, res) => {
 }
 
 const checkIfExist = data => {
-	return data.split('/')[5] === 'view' ? false : true;
+	return data.split('/')[5] === 'view' ? true : false;
 }
