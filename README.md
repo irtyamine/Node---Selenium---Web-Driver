@@ -1,5 +1,5 @@
-# NODE API Referral API App
-Node API referral App
+# NODE Branding Tool API
+A sample API that access https://www.namecheckr.com if username or domain is available.
 
 ## How to use
 After cloning do NPM install. <br>
