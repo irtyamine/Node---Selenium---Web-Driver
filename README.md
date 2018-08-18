@@ -1,5 +1,5 @@
 # NODE Branding Tool API
-A sample API that access https://www.namecheckr.com if username or domain is available.
+A sample API that access https://www.namecheckr.com if username or domain is available using selenium webdriver
 
 ## How to use
 After cloning do NPM install. <br>
