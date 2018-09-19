@@ -20,7 +20,7 @@ module.exports.pickEnv = (env, app) => {
 	mongoose.Promise = global.Promise;
 	switch (env) {
 	    case 'dev':
-	    	app.set('port', process.env.PORT || 5050);
+	    	app.set('port', process.env.PORT || 7070);
 	        mongoose.connect(mongoConnectionOnline.url, 
 	        	err => { if(err) { console.log(err); }}); 
 	        break;
@@ -31,7 +31,7 @@ module.exports.pickEnv = (env, app) => {
 			  pass: process.env.MongoDBLocalPassword,
 			}
 
-	    	app.set('port', process.env.PORT || 5050);
+	    	app.set('port', process.env.PORT || 7070);
 	        mongoose.connect(mongoConnectionLocal.url, options,  
 	        	err => { if(err) { console.log(err); }});
 			break;

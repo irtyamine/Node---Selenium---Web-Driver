@@ -2,7 +2,6 @@ require('chromedriver');
 const { Builder, By, Key, until } = require('selenium-webdriver');
 const driver = new Builder().forBrowser('chrome').build();
 
-
 module.exports.getHome = (req, res) => {
 	res.status(200).json({ 
 		success: true, 
@@ -25,7 +24,7 @@ module.exports.searchBrand = async (req, res) => {
        	facebook = await driver.findElement(By.id('facebook')).getAttribute("href");
        	twitter  = await driver.findElement(By.id('twitter')).getAttribute("href");
 
-        await driver.quit();
+        //await driver.quit();
 
         return res.status(200).json({
         	success  : true,
@@ -44,10 +43,33 @@ module.exports.searchBrand = async (req, res) => {
     			error_message:'Exception occurred while processing, details are: ',
     			error: err
     		});
-        await driver.quit()
+        //await driver.quit()
     }
 }
 
 const checkIfExist = data => {
 	return data.split('/')[5] === 'view' ? true : false;
+}
+
+
+module.exports.googleSignin = async (req, res) => {
+  try {
+    let url = 'https://accounts.google.com/signin';
+
+    await driver.get(url);
+    await driver.findElement(By.xpath(".//*[@id='identifierId']")).sendKeys('testing.in.slnm@gmail.com', Key.RETURN);
+    await timeout(2000);
+    await driver.findElement(By.xpath(".//*[@name='password']")).sendKeys('thisismypassword', Key.RETURN);
+
+    return res.status(200).json({
+      success  : true,
+      message  : "You successfully logged in to google",
+    });
+  } catch (err) {
+    console.log(err)
+    return res.status(500).json({
+      error_message:'Exception occurred while processing, details are: ',
+      error: err
+    });
+  }
 }
